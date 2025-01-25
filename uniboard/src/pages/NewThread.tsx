@@ -1,4 +1,4 @@
-const universities = ["MIT", "Stanford", "UCLA", "Harvard", "UC Berkeley"]
+const universities = ["MIT", "Stanford", "NUS", "NTU", "SIM"]
 const applicationProcesses = ["Undergraduate", "Graduate", "Transfer"]
 
 
