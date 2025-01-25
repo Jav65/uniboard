@@ -20,7 +20,7 @@ export default function NewThread() {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch('https://uniboard-1.onrender.com//api/user', {credentials: "include",})
+        const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
         if (!res.ok) {
           throw new Error("User not logged in");
         }
@@ -38,7 +38,7 @@ export default function NewThread() {
   const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault()
       
-      const response = await fetch('https://uniboard-1.onrender.com//api/thread', {
+      const response = await fetch('https://uniboard-1.onrender.com/api/thread', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
@@ -55,7 +55,7 @@ export default function NewThread() {
 
   useEffect(() => {
       const fetchTags = async () => {
-        const res = await fetch('https://uniboard-1.onrender.com//api/tags')
+        const res = await fetch('https://uniboard-1.onrender.com/api/tags')
         const body = await res.json()
         setTags(body.data)
         console.log(body.data)
