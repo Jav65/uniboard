@@ -1,0 +1,42 @@
+.
+├── app
+├── comment
+│   ├── entity.go
+│   ├── repository.go
+│   ├── request.go
+│   └── service.go
+├── go.mod
+├── go.sum
+├── handler
+│   ├── comment.go
+│   ├── tag.go
+│   ├── threads.go
+│   ├── threadtags.go
+│   └── user.go
+├── main
+├── main.go
+├── middleware
+│   └── cors.go
+├── tag
+│   ├── entity.go
+│   ├── repository.go
+│   ├── request.go
+│   └── service.go
+├── thread
+│   ├── entity.go
+│   ├── repository.go
+│   ├── request.go
+│   └── service.go
+├── threadtags
+│   ├── entity.go
+│   ├── repository.go
+│   ├── request.go
+│   └── service.go
+├── tree
+└── user
+    ├── entity.go
+    ├── repository.go
+    ├── request.go
+    └── service.go
+
+7 directories, 32 files

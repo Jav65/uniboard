@@ -1,5 +1,7 @@
 import { Menu, Search, LogIn, UserPlus, LogOut } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { Link } from "react-router-dom";
+
 
 export default function Header({ searchQuery, setSearchQuery }: { searchQuery: string; setSearchQuery: (query: string) => void }) {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
