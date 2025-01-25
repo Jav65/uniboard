@@ -8,7 +8,7 @@ import {useNavigate} from 'react-router-dom'
 
 export default function NewThread() {
   const [isAnonymous, setIsAnonymous] = useState(false)
-  const [author_id, setAuthorId] = useState(null);
+  const [author_id, setAuthorId] = useState(0);
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const [tags, setTags] = useState<any>([])
@@ -20,11 +20,13 @@ export default function NewThread() {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
-        if (!res.ok) {
-          throw new Error("User not logged in");
-        }
-        const user = await res.json();
+        // const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
+        // if (!res.ok) {
+        //   throw new Error("User not logged in");
+        // }
+        // const user = await res.json();
+        // setAuthorId(user.id);
+        const user = {username: "john", id: 2, email: "john@gmail.com"} //mock data, cookies setting error in vercel
         setAuthorId(user.id);
       } catch (err) {
         console.error("Error fetching user:", err);

@@ -29,17 +29,19 @@ export default function ThreadView() {
   const [thread, setThread] = useState<Thread | null>(); 
   const [comments, setComments] = useState<Comment[]>([]);
   const [commentContent, setCommentContent] = useState("");
-  const [author_id, setAuthorId] = useState(null);
+  const [author_id, setAuthorId] = useState(0);
   const navigate = useNavigate()
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
-        if (!res.ok) {
-          throw new Error("User not logged in");
-        }
-        const user = await res.json();
+        // const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
+        // if (!res.ok) {
+        //   throw new Error("User not logged in");
+        // }
+        // const user = await res.json();
+        // setAuthorId(user.id);
+        const user = {username: "john", id: 2, email: "john@gmail.com"} //mock data, cookies setting error in vercel
         setAuthorId(user.id);
       } catch (err) {
         console.error("Error fetching user:", err);

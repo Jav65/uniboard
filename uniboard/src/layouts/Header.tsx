@@ -12,12 +12,13 @@ export default function Header({ searchQuery, setSearchQuery }: { searchQuery: s
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
-        if(res.ok){
-          const body = await res.json()
-          setUser(body)
-          console.log(body)
-        } 
+        // const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
+        // if(res.ok){
+        //   const body = await res.json()
+        //   setUser(body)
+        // } 
+        const user = {username: "john", id: 2, email: "john@gmail.com"} //mock data, cookies setting error in vercel
+        setUser(user);
       } catch (error) {
         console.error('Error fetching user:', error)
       }

@@ -23,7 +23,7 @@ const sortOptions = ["Most Recent","Most Comments", "Most Views", "Most Likes"]
 export default function Home({ searchQuery }: { searchQuery: string }) {
   const [activeTab, setActiveTab] = useState(tabs[0])
   const [sortBy, setSortBy] = useState(sortOptions[0])
-  const [currentId, setCurrentId] = useState(null);
+  const [currentId, setCurrentId] = useState(0);
   const [threads, setThreads] = useState<Thread[]>([])
   const [copyThreads, setCopyThreads] = useState<Thread[]>([])
   const [tags, setTags] = useState<string[]>([])
@@ -35,11 +35,12 @@ export default function Home({ searchQuery }: { searchQuery: string }) {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
-        if (!res.ok) {
-          throw new Error("User not logged in");
-        }
-        const user = await res.json();
+        // const res = await fetch('https://uniboard-1.onrender.com/api/user', {credentials: "include",})
+        // if (!res.ok) {
+        //   throw new Error("User not logged in");
+        // }
+        // const user = await res.json();
+        const user = {username: "john", id: 2, email: "john@gmail.com"} //mock data, cookies setting error in vercel
         setCurrentId(user.id);
       } catch (err) {
         console.error("Error fetching user:", err);
