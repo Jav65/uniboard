@@ -19,7 +19,7 @@ import (
 
 func main() {
 	//Database
-	dbURL := "postgresql://postgres:postgres@localhost:5432/uniboard"
+	dbURL := "postgresql://uniboard_user:9UpSnmtA4EJ5tLNqubnU7JdbbfaGbUcg@dpg-cua70jdsvqrc73dmj3p0-a.oregon-postgres.render.com/uniboard"
 
 	db, err := gorm.Open(postgres.Open(dbURL), &gorm.Config{})
 	if err != nil {
@@ -36,7 +36,7 @@ func main() {
 	r := gin.Default()
 	headers := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
 	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"})
-	origins := handlers.AllowedOrigins([]string{"http://127.0.0.1:5173"})
+	origins := handlers.AllowedOrigins([]string{"https://uniboard-lemon.vercel.app"})
 	credentials := handlers.AllowCredentials()
 
 	api := r.Group("/api")
@@ -83,4 +83,20 @@ func main() {
 	api.POST("/comment/:id", commentHandler.CreateCommentHandler)
 
 	http.ListenAndServe(":8080", handlers.CORS(origins, headers, methods, credentials)(r))
+}
+
+func CORSMiddleware() gin.HandlerFunc {
+	return (func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+
+		c.Next()
+	})
 }
