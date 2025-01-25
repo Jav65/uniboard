@@ -23,7 +23,7 @@ export default function Login() {
     if (res.ok) {
       const data = await res.json()
       console.log(data)
-      const _ = await fetch('http://localhost:8080/api/user', {credentials: "include",})
+      await fetch('http://localhost:8080/api/user', {credentials: "include",})
       navigate('/')
       window.location.reload()
     } else {

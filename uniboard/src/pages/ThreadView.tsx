@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; 
-import { ThumbsUp } from 'lucide-react'
 import {useNavigate} from 'react-router-dom'
 
 interface Comment {
@@ -73,7 +72,7 @@ export default function ThreadView() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    const response = await fetch(`http://localhost:8080/api/comment/${id}`, {
+    await fetch(`http://localhost:8080/api/comment/${id}`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -82,7 +81,6 @@ export default function ThreadView() {
     });
     console.log(JSON.stringify({thread_id: id, content: commentContent, author_id,}))
 
-    const _ = await response.json();
     alert('Comment created successfully!');
     window.location.reload()
   };

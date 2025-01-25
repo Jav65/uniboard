@@ -1,7 +1,7 @@
 import { MessageSquare, Eye, ThumbsUp } from 'lucide-react'
 
 interface ThreadCardProps {
-  id: number
+  id: string
   title: string
   author_name : string
   comments: number
