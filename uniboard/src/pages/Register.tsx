@@ -11,7 +11,7 @@ export default function Register() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const res = await fetch("http://localhost:8080/api/register", {
+    const res = await fetch("https://uniboard-1.onrender.com//api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

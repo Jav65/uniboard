@@ -35,7 +35,7 @@ export default function Home({ searchQuery }: { searchQuery: string }) {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/user', {credentials: "include",})
+        const res = await fetch('https://uniboard-1.onrender.com//api/user', {credentials: "include",})
         if (!res.ok) {
           throw new Error("User not logged in");
         }
@@ -52,7 +52,7 @@ export default function Home({ searchQuery }: { searchQuery: string }) {
 
   useEffect(() => {
     const fetchThreads = async () => {
-      const res = await fetch(`http://localhost:8080/api/threads?sortBy=${sortBy}&search=${searchQuery}`)
+      const res = await fetch(`https://uniboard-1.onrender.com//api/threads?sortBy=${sortBy}&search=${searchQuery}`)
       const body = await res.json()
       setThreads(body.data)
       setCopyThreads(body.data)
@@ -63,7 +63,7 @@ export default function Home({ searchQuery }: { searchQuery: string }) {
 
   useEffect(() => {
     const fetchTags = async () => {
-      const res = await fetch('http://localhost:8080/api/tags/name')
+      const res = await fetch('https://uniboard-1.onrender.com//api/tags/name')
       const body = await res.json()
       setTags(body.data)
       console.log(body.data)

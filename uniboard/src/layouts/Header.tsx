@@ -12,7 +12,7 @@ export default function Header({ searchQuery, setSearchQuery }: { searchQuery: s
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/user', {credentials: "include",})
+        const res = await fetch('https://uniboard-1.onrender.com//api/user', {credentials: "include",})
         if(res.ok){
           const body = await res.json()
           setUser(body)
@@ -26,7 +26,7 @@ export default function Header({ searchQuery, setSearchQuery }: { searchQuery: s
   }, [])
 
   const handleLogout = async () => {
-    const res = await fetch("http://localhost:8080/api/logout", {
+    const res = await fetch("https://uniboard-1.onrender.com//api/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

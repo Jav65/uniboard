@@ -9,7 +9,7 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:8080/api/login", {
+    const res = await fetch("https://uniboard-1.onrender.com//api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export default function Login() {
     if (res.ok) {
       const data = await res.json()
       console.log(data)
-      await fetch('http://localhost:8080/api/user', {credentials: "include",})
+      await fetch('https://uniboard-1.onrender.com//api/user', {credentials: "include",})
       navigate('/')
       window.location.reload()
     } else {

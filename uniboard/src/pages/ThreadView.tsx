@@ -35,7 +35,7 @@ export default function ThreadView() {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/user', {credentials: "include",})
+        const res = await fetch('https://uniboard-1.onrender.com//api/user', {credentials: "include",})
         if (!res.ok) {
           throw new Error("User not logged in");
         }
@@ -52,7 +52,7 @@ export default function ThreadView() {
 
   useEffect(() => {
     const fetchThread = async () => {
-      const res = await fetch(`http://localhost:8080/api/thread/${id}`)
+      const res = await fetch(`https://uniboard-1.onrender.com//api/thread/${id}`)
       const body = await res.json()
       setThread(body.data)
   } 
@@ -61,7 +61,7 @@ export default function ThreadView() {
 
   useEffect(() => {
     const fetchComments = async () => {
-      const res = await fetch(`http://localhost:8080/api/comments/${id}`)
+      const res = await fetch(`https://uniboard-1.onrender.com//api/comments/${id}`)
       const body = await res.json()
       setComments(body.data)
       console.log(body.data)
@@ -72,7 +72,7 @@ export default function ThreadView() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    await fetch(`http://localhost:8080/api/comment/${id}`, {
+    await fetch(`https://uniboard-1.onrender.com//api/comment/${id}`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
